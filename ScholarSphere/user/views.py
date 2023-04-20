@@ -1,7 +1,7 @@
 # publish/views.py
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from ScholarSphere.user.models import User
+from user.models import User
 
 def check_number(password):
     for c in password:
@@ -47,6 +47,7 @@ def check_password_wrong_45times(email):
         user.times_of_wa_password=0
         return True
     user.times_of_wa_password=user.times_of_wa_password+1
+    user.save()
     return False
 
 
