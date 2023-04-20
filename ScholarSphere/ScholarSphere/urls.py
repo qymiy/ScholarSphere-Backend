@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
-    path('api/scholarsphere', include('ScholarSphere.urls','ScholarSphere'))
+    path('api/scholarsphere/', include('ScholarSphere.urls','ScholarSphere'))
 ]

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52ce9b38-1a76-416a-963b-624e0f0690b8" name="变更" comment="" />
+    <list default="true" id="52ce9b38-1a76-416a-963b-624e0f0690b8" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScholarSphere/ScholarSphere/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScholarSphere/ScholarSphere/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScholarSphere/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScholarSphere/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScholarSphere/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScholarSphere/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ScholarSphere/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScholarSphere/user/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,20 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -52,7 +58,8 @@
       <updated>1681642478936</updated>
       <workItem from="1681642480538" duration="41000" />
       <workItem from="1681643297355" duration="325000" />
-      <workItem from="1681643634445" duration="1402000" />
+      <workItem from="1681643634445" duration="1990000" />
+      <workItem from="1681973093800" duration="2928000" />
     </task>
     <servers />
   </component>
