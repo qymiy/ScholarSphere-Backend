@@ -107,6 +107,7 @@ def check_accessible(user):
     now = get_standard_time(datetime.datetime.now())
     if date.day<now.day:
         user.forbiden_start_time=None
+        user.save()
         return True
     return False
 def get_standard_time(time):
@@ -121,6 +122,7 @@ def check_autologin(user):
     now=get_standard_time(datetime.datetime.now())
     if (now-date).days >= 7:
         user.sevendays_autologin_start_time=None
+        user.save()
         return False
     return True
 
@@ -155,6 +157,7 @@ def login(request):
             if not check_password(email,password):
                 if check_password_wrong_45times(email):
                     user.forbiden_start_time=get_standard_time(datetime.datetime.now())
+                    user.save()
                 result = {'result': 0, 'message': r'密码错误!'}
                 return JsonResponse(result)
             else:
