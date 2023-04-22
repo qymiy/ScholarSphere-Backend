@@ -61,9 +61,9 @@ def register(request):
     if request.method == 'POST':
 
         # username = request.POST.get('username', '')
-        password1 = request.POST.get('password1', '')
-        password2 = request.POST.get('password2', '')
-        email = request.POST.get('email', '')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        email = request.POST.get('email')
 
         if  len(password1) == 0 or len(password2) == 0 or len(email) == 0:
             result = {'result': 0, 'message': r'用户名, 邮箱, 与密码不允许为空!'}
