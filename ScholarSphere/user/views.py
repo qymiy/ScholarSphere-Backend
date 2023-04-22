@@ -95,7 +95,7 @@ def checkmailregistered(request):
             result = {'result': 0, 'message': r'该邮箱已被注册!'}
             return JsonResponse(result)
         result = {'result': 1, 'message': r"新邮箱,可以注册!"}
-        return result
+        return JsonResponse(result)
     else:
         result = {'result': 0, 'message': r"请求方式错误！"}
         return JsonResponse(result)
