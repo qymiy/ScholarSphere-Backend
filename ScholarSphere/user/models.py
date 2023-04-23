@@ -8,11 +8,11 @@ class User(models.Model):
     password = models.CharField('密码', max_length=32)
     email = models.EmailField()
     # times_of_wa_password、
-    times_of_wa_password = models.IntegerField('一天内密码输错次数',default=0)
+    times_of_wa_password = models.IntegerField('一天内密码输错次数', default=0, null=True)
     # forbiden_start_time、
-    forbiden_start_time = models.DateTimeField('禁止登陆开始时间',default=None)
+    forbiden_start_time = models.DateTimeField('禁止登陆开始时间', default=None, null=True)
     # 7days_autologin_start_time
-    sevendays_autologin_start_time = models.DateTimeField('设置自动登录开始时间',default=None)
+    sevendays_autologin_start_time = models.DateTimeField('设置自动登录开始时间', default=None, null=True)
 
 
 
