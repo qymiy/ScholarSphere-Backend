@@ -1,8 +1,12 @@
 # publish/views.py
+import datetime
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+
 from user.models import User
-import datetime
+
+
 def check_number(password):
     for c in password:
         if c.isnumeric():
@@ -42,9 +46,10 @@ def check_password(email,password):
     return False
 
 def check_password_wrong_45times(email):
-    user = User.objects.filter(email=email)
+    user = User.objects.filter(email=email).first()
     if user.times_of_wa_password==5:
         user.times_of_wa_password=0
+        user.save()
         return True
     user.times_of_wa_password=user.times_of_wa_password+1
     user.save()
@@ -56,17 +61,13 @@ def register(request):
     """
     :param request: 请求体
     :return:        1 - 成功， 0 - 失败
-    请求体包含包含 username，password1，password2，email
+    请求体包含包含 password1，password2，email
     """
     if request.method == 'POST':
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
 
-        # username = request.POST.get('username', '')
-        password1 = request.POST.get('password1', '')
-        password2 = request.POST.get('password2', '')
-        email = request.POST.get('email', '')
-        print(password1)
-        print(password2)
-        print(email)
         if len(password1) == 0 or len(password2) == 0 or len(email) == 0:
             result = {'result': 0, 'message': r'用户名, 邮箱, 与密码不允许为空!'}
             return JsonResponse(result)
@@ -81,7 +82,7 @@ def register(request):
 
         message = check_legal(password1)
 
-        user = User(email=email, password=password1)
+        user = User( email=email, password=password1)
         user.save()
         result = {'result': 1, 'message': r"注册成功!"}
         return JsonResponse(result)
@@ -112,6 +113,7 @@ def check_accessible(user):
         user.save()
         return True
     return False
+
 def get_standard_time(time):
     time_str=time.strftime("%Y-%m-%d %H:%M:%S")
     new_time=datetime.datetime.strptime(time_str,"%Y-%m-%d %H:%M:%S")
@@ -147,19 +149,21 @@ def login(request):
             result = {'result': 0, 'message': r'用户不存在!'}
             return JsonResponse(result)
 
-        if check_autologin(user):
+        if check_autologin(user.first()):
             result = {'result': 1, 'message': r'登录成功!'}
             return JsonResponse(result)
 
-        if check_accessible(user):
-            password = request.POST.get('password1', '')
+        if check_accessible(user.first()):
+            password = request.POST.get('password', '')
             if len(password)==0:
                 result = {'result': 0, 'message': r'密码不能为空!'}
                 return JsonResponse(result)
             if not check_password(email,password):
                 if check_password_wrong_45times(email):
-                    user.forbiden_start_time=get_standard_time(datetime.datetime.now())
-                    user.save()
+                    user.update(forbiden_start_time=get_standard_time(datetime.datetime.now()))
+                    user.first().save()
+                    result = {'result': 0, 'message': r'错误太多，禁止登录!'}
+                    return JsonResponse(result)
                 result = {'result': 0, 'message': r'密码错误!'}
                 return JsonResponse(result)
             else:
@@ -183,8 +187,12 @@ def autologin(request):
     """
     if request.method == 'POST':
         email = request.POST.get('email', '')
-        user = User.objects.filter(email=email)
-        user.sevendays_autologin_start_time = get_standard_time(datetime.datetime.now())
+        user = User.objects.filter(email=email).first()
+        if user.sevendays_autologin_start_time is None:
+            user.sevendays_autologin_start_time = get_standard_time(datetime.datetime.now())
+        else:
+            user.sevendays_autologin_start_time = None
+        user.save()
         result = {'result': 1, 'message': r"设置成功！"}
         return JsonResponse(result)
     else:
