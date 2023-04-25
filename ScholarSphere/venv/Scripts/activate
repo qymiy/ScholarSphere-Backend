@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Jianmy09\Desktop\ScholarSphere-Backend\ScholarSphere\venv"
+VIRTUAL_ENV="D:\MyFiles\4thSemester\SoftEngineer\ScholarSphere-Backend\ScholarSphere\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
